@@ -1,0 +1,25 @@
+.menu { 
+    position: relative; 
+    display: inline-block; 
+}
+
+.btn {
+padding: 10px 20px; 
+cursor: pointer;
+}
+
+.list { 
+    display: none; 
+    position: absolute; 
+    border: 1px solid #ddd; 
+}
+
+.list a { 
+    padding: 10px; 
+    text-decoration: none; 
+    display: block; }
+
+.ham:hover { background: #ffb7c5; }
+.cheese:hover { background: #fff2cc; }
+.butter:hover { background: #ffcccc; }
+.menu:hover .list { display: block; }

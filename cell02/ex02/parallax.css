@@ -1,0 +1,22 @@
+body, html { margin: 0; height: 100%; font-family: sans-serif; }
+
+.section-image {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
+
+.black-block {
+    height: 50vh; 
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

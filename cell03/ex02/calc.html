@@ -1,0 +1,34 @@
+<html>
+<body>
+    <input type="text" id="l">
+    <select id="op">
+        <option value="+">+</option><option value="-">-</option>
+        <option value="*">*</option><option value="/">/</option><option value="%">%</option>
+    </select>
+    <input type="text" id="r">
+    <input type="submit" value="Try me!" onclick="calc()">
+
+    <script>
+        function calc() {
+            let a = Number(document.getElementById('l').value);
+            let b = Number(document.getElementById('r').value);
+            let op = document.getElementById('op').value;
+
+            if (a < 0 || b < 0 || a % 1 !== 0 || b % 1 !== 0) {
+                return alert("Error :(");
+            }
+
+            if ((op === '/' || op === '%') && b === 0) {
+                console.log("It’s over 9000!");
+                return alert("It’s over 9000!");
+            }
+
+            res = eval(a + op + b);
+            alert(res);
+            console.log(res);
+        }
+
+        setInterval(() => alert("Please, use me..."), 30000);
+    </script>
+</body>
+</html>
