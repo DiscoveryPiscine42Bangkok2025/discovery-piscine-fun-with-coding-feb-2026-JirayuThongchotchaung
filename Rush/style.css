@@ -15,6 +15,15 @@ body {
     touch-action: none;
 }
 
+.fade-zone {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-hide {
+    opacity: 0 !important;
+    transform: translateY(20px);
+}
+
 /* --- UI Elements --- */
 .profile-toggle {
     position: fixed; top: 25px; left: 25px; z-index: 1000;

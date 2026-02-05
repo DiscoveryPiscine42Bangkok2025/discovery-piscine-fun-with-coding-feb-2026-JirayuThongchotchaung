@@ -49,6 +49,14 @@ function navigate(direction) {
     }
 }
 
+window.addEventListener('DOMContentLoaded', (event) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('run') === 'switch') {
+        switchProfile();
+    }
+    renderProjects(0);
+});
+
 window.addEventListener('wheel', (e) => {
     if (Math.abs(e.deltaY) < 30) return;
     navigate(e.deltaY > 0 ? 'down' : 'up');
