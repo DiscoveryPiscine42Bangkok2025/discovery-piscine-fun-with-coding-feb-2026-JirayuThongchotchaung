@@ -108,5 +108,7 @@ window.addEventListener('wheel', (e) => {
 }, { passive: false });
 
 window.addEventListener('DOMContentLoaded', () => {
-    updateProfileUI(0);
+    const check = new URLSearchParams(window.location.search);
+    activeProfile = check.get('run') === 'switch' ? 1 : 0;
+    updateProfileUI(activeProfile);
 });
