@@ -23,6 +23,7 @@ const profiles = [
         projects: [
             { title: "Rack Project", desc: "โปรเจกต์นี้เป็นการจำลองระบบเครือข่ายด้วย Cisco Packet Tracer โดยเชื่อมต่อ PC, Switch และ Router ให้ทุกอุปกรณ์สามารถ Ping หากันได้ด้วย Dynamic Routing ได้เรียนรู้การกำหนด IP Address, Subnet, VLAN รวมถึงการใช้งานอุปกรณ์ Network ทั้งซอฟต์แวร์และการต่อ Rack จริง", img: "../img/Rack.png" },
             { title: "KMITL-NOTIBUSS", desc: "โปรเจกต์นี้เป็นแอปแจ้งเตือนป้ายรถโดยสารสำหรับผู้ที่มักหลับบนรถ โดยเลือกป้ายปลายทางแล้วระบบจะแจ้งเตือนด้วยการสั่นเมื่อใกล้ถึงจุดหมาย ใช้ Longdo Map API สำหรับแผนที่ภายใน สจล. และ JavaScript สำหรับแจ้งเตือน", img: "../img/Firewall.png" }
+        
         ]
     }
 ];
@@ -37,11 +38,9 @@ const dots = document.querySelectorAll('.dot');
 function updateProfileUI(index) {
     const data = profiles[index];
     const pImg = document.getElementById('p-img');
-    if (pImg) {
-        pImg.src = data.img;
-        pImg.style.display = "block"; 
-    }
-    
+
+    pImg.src = data.img;
+        
     document.getElementById('p-name').innerText = data.name;
     document.getElementById('p-tag').innerText = data.tag;
     document.getElementById('p-bio').innerHTML = data.bio;
