@@ -36,7 +36,11 @@ const dots = document.querySelectorAll('.dot');
 
 function updateProfileUI(index) {
     const data = profiles[index];
-    const pImg = document.getElementById('p-img') =  data.img;    
+    const pImg = document.getElementById('p-img');
+    if (pImg) {
+        pImg.src = data.img;
+        pImg.style.display = "block"; 
+    }
     
     document.getElementById('p-name').innerText = data.name;
     document.getElementById('p-tag').innerText = data.tag;
