@@ -23,7 +23,6 @@ const profiles = [
         projects: [
             { title: "Rack Project", desc: "โปรเจกต์นี้เป็นการจำลองระบบเครือข่ายด้วย Cisco Packet Tracer โดยเชื่อมต่อ PC, Switch และ Router ให้ทุกอุปกรณ์สามารถ Ping หากันได้ด้วย Dynamic Routing ได้เรียนรู้การกำหนด IP Address, Subnet, VLAN รวมถึงการใช้งานอุปกรณ์ Network ทั้งซอฟต์แวร์และการต่อ Rack จริง", img: "../img/Rack.png" },
             { title: "KMITL-NOTIBUSS", desc: "โปรเจกต์นี้เป็นแอปแจ้งเตือนป้ายรถโดยสารสำหรับผู้ที่มักหลับบนรถ โดยเลือกป้ายปลายทางแล้วระบบจะแจ้งเตือนด้วยการสั่นเมื่อใกล้ถึงจุดหมาย ใช้ Longdo Map API สำหรับแผนที่ภายใน สจล. และ JavaScript สำหรับแจ้งเตือน", img: "../img/Firewall.png" }
-        
         ]
     }
 ];
@@ -37,10 +36,8 @@ const dots = document.querySelectorAll('.dot');
 
 function updateProfileUI(index) {
     const data = profiles[index];
-    const pImg = document.getElementById('p-img');
-
-    pImg.src = data.img;
-        
+    const pImg = document.getElementById('p-img') =  data.img;    
+    
     document.getElementById('p-name').innerText = data.name;
     document.getElementById('p-tag').innerText = data.tag;
     document.getElementById('p-bio').innerHTML = data.bio;
@@ -106,8 +103,18 @@ window.addEventListener('wheel', (e) => {
     else if (e.deltaY < 0 && currentSection > 0) gotoSection(currentSection - 1);
 }, { passive: false });
 
-window.addEventListener('DOMContentLoaded', () => {
-    const check = new URLSearchParams(window.location.search);
-    activeProfile = check.get('run') === 'switch' ? 1 : 0;
-    updateProfileUI(activeProfile);
+
+document.addEventListener('click', e => {
+    const isDropdownButton = e.target.matches('[data-bs-toggle="dropdown"]');
+    
+    if (isDropdownButton) {
+        const currentDropdown = e.target.closest('.dropdown');
+        currentDropdown.classList.toggle('active'); 
+        const menu = currentDropdown.querySelector('.dropdown-menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    } else {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.display = 'none';
+        });
+    }
 });
